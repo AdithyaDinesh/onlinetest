@@ -157,7 +157,7 @@ a:hover {
                             if (isset($_SESSION['user'])) {  ?>
                                 <li class="menu-btn">
                                 <a  class="login" href="includes/logout.php">
-                                Logout
+                                Logout / <?= $_SESSION['user'] ?>
                             </a>
                             </li>
                             <?php } else { ?>
@@ -253,7 +253,7 @@ a:hover {
                         <p class="py-3">
                             Questions which cracks your mathematical skills.
                         </p>
-                        <a href="#" class="secondary-btn">Take test now<span class="flaticon-next"></span></a>
+                        <a href="includes/start.php?cat_id=1" class="secondary-btn">Take test now<span class="flaticon-next"></span></a>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -261,7 +261,7 @@ a:hover {
                         <img src="assets/images/cat1.png" alt="category">
                         <h4>Data Interpretation</h4>
                         <p class="py-3">Check how well you can interpret the datas.</p>
-                        <a href="#" class="secondary-btn">Take test now<span class="flaticon-next"></span></a>
+                        <a href="includes/start?cat_id=2" class="secondary-btn">Take test now<span class="flaticon-next"></span></a>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -269,7 +269,7 @@ a:hover {
                         <img src="assets/images/cat7.png" alt="category">
                         <h4>Actual aptitude</h4>
                         <p class="py-3">This contains both type of questions.</p>
-                        <a href="#" class="secondary-btn">Take test now<span class="flaticon-next"></span></a>
+                        <a href="includes/start?cat_id=3" class="secondary-btn">Take test now<span class="flaticon-next"></span></a>
                     </div>
                 </div>
             </div>

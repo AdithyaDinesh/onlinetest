@@ -189,11 +189,8 @@ function callme()
             </div>
         </div>
     </header>
-    <?php include('includes/shuffle.php'); ?>
-
-
     <div class="col-md-12 text-right">
-      <p>Time Remaining : <span id="demo">1111</span></p>
+      <p>Time Remaining : <span id="demo">Expired</span></p>
     </div>
     <section class="feature-area section-padding2 col-md-10">
        

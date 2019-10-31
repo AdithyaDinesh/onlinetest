@@ -190,11 +190,12 @@ function callme()
         </div>
     </header>
     <?php include('includes/shuffle.php'); ?>
+    <?= $_SESSION['iteration'] ?>
 
 <script type="text/javascript">
   // Set the date we're counting down to
 var countDownDate = <?= $row['outtime']?>;
-var now = <?= $row['intime']?>;
+var now = <?= time()?>;
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -222,96 +223,19 @@ var x = setInterval(function() {
 </script>
 
     <div class="col-md-12 text-right">
-      <p>Time Remaining : <span id="demo">1111</span></p>
+      <p>Time Remaining : <span id="demo"></span></p>
     </div>
-<div class="col-md-1" style="height: 90vh; line-height: 90vh;"><i class="material-icons">
+<div class="col-md-1" style="height: 90vh; line-height: 90vh;"><i style="cursor: pointer;" class="material-icons">
 keyboard_arrow_left
 </i></div>
-    <section class="feature-area section-padding2 col-md-10">
-        <div class="container">
-            <div class="row">
-<span class="col-md-11" id="Q">From 7:00 AM to 11:00 AM it rained 2.25 inches. At 11:00 AM the rain increased to fall at a rate of 1.25 in. every two hours. How many inches of rain landed on the ground by 5:00 PM?</span>
-    <p class="ansDiv col-md-12">
-      <form action="index.php" id="answerform" method="POST">
-      <table>
-        <tbody>
-          <tr>
-            <td style="width: 2em;">
-            <input type="radio" name="answer" value="">
-            </td>
-            <td style="width: 2em;"><label class="ans" id="A">7</label></td>
-          </tr>
-            <td style="width: 2em;">
-          <input type="radio" name="answer" value="">
-            </td>
-            <td style="width: 2em;"><label class="ans" id="A">7</label></td>
-          </tr>
-            <td style="width: 2em;">
-          <input type="radio" name="answer" value="">
-            </td>
-            <td style="width: 2em;"><label class="ans" id="A">7</label></td>
-          </tr>
-            <td style="width: 2em;">
-          <input type="radio" name="answer" value="">
-            </td style="width: 2em;">
-            <td><label class="ans" id="A">7</label></td>
-          </tr>
-        </tbody>
-      </table>
-        <!-- <li>
-          <?php if ($_SESSION['iteration']!=0) {
-            echo "<input type='submit' name='submit' class='btn btn-primary' value='&#60;' id='pre'>";
-          } ?>
-          <?php if ($_SESSION['check']=='back') {
-            echo "<input type='submit' name='submit' class='btn btn-primary' value='Update_It'>";
-          } ?>
-          <input type="submit" name='submit' class="btn btn-primary" style="display: none;" id="nex" value="&#62;">
+<?php include('includes/q.php'); ?>
 
-        </li> -->
-      </ul>
-    </form>
-    </p>
-  </div>
-</div>
-</section>
-
-<div class="col-md-1" style="height: 90vh; line-height: 90vh;"><i class="material-icons">
+<div class="col-md-1" style="height: 90vh; line-height: 90vh;"><i onclick="next()" style="cursor: pointer;" class="material-icons">
 keyboard_arrow_right
-<?php echo round(($row['outtime']-time()),2); ?>
 </i></div>
-
-
 <script type="text/javascript">
-
-  var t= <?php echo round(($row['outtime']-time()),2); ?>;
-  m=Math.floor(t/60);
-  s=t%60;
-  <?php $time = round(($row['outtime']-time()),2);
-
- ?>
-  var time=<?php echo $time;?>;
-      time=time+30;
-      min=Math.floor(time/60)-1;
-      sec1=time%60; 
-  var sec=(s<=9&&s>=0)?'0'+String(s):s;
-  document.getElementById("aa").innerHTML=m+":"+sec;    
-  function timerr(){
-    var t= <?php echo round(($_SESSION['et']-time()),2); ?>;
-    var x=setInterval(function(){
-      t = t - 1;
-      m=Math.floor(t/60);
-      s=t%60;
-      // if (m==min && s==sec1) {
-      //   $("#nex").css('display','inline-block');
-      //     }
-       sec=(s<=9&&s>=0)?'0'+String(s):s;
-      if (m<0) {        
-        // clearInterval(x);
-        // $("#overlay").css('display','block');
-      }else document.getElementById("aa").innerHTML=m+":"+sec;  
-    },1000);
-
+  function next(){
+    document.getElementById("hidd").value = "NEXT";
+    document.getElementById("answerform").submit();
   }
-  timerr();
-
 </script>
