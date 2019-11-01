@@ -154,22 +154,6 @@ function callme()
                         <ul>
                             <li class="active"><a href="index.php">home</a></li>
                             <li><a href="about.html">about us</a></li>
-                            <li><a href="job-category.html">category</a></li>
-                            <li><a href="#">blog</a>
-                                <ul class="sub-menu">
-                                    <li><a href="blog-home.html">Blog Home</a></li>
-                                    <li><a href="blog-details.html">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contact-us.html">contact</a></li>
-                            <li><a href="#">pages</a>
-                                <ul class="sub-menu">
-                                    <li><a href="job-search.html">Job Search</a></li>
-                                    <li><a href="job-single.html">Job Single</a></li>
-                                    <li><a href="pricing-plan.html">Pricing Plan</a></li>
-                                    <li><a href="elements.html">Elements</a></li>
-                                </ul>
-                            </li>
                             <?php if (isset($_SESSION['user'])) {  ?>
                                 <li class="menu-btn">
                                 <a  class="login" href="includes/logout.php">
@@ -198,8 +182,8 @@ function callme()
         $sql1="SELECT * FROM userresponse U,questions Q  WHERE U.tid='$eid' AND U.qid=Q.id" ;
         $result= mysqli_query($db,$sql1);
         $c=1;
+        while($c <= 10){
 
-        while($c<=10){
         $row1 = $result->fetch_assoc();
           $id=$row1['qid'];
           $uresult=$row1['response'];
@@ -207,27 +191,45 @@ function callme()
           ?>
           <table>
         <tr>
-          <td><?= $c ?></td>
-          <td colspan="3"> <?= $row1['question'] ?></td>
+          <td style="width: 50px; text-align: center;"><?= $c ?> ) </td>
+          <td colspan="3" style="line-height: 1em;"> <?= $row1['question'] ?></td>
         </tr>
         <tr>
-          <td>A</td>
-          <td>123</td>
-          <td></td>
+          <td style="width: 50px; text-align: center;">A</td>
+          <td> <?= $row1['A'] ?></td>
+          <td><?php if ($uresponse==1 && $uresult==$row1['A'] ) { ?>
+            <strong><span style='color: green;'>&nbsp;&#10004;</span></strong>
+          <?php }else if ($uresponse==0 && $uresult==$row1['A'] ){ ?>
+                <strong><span style='color: red;'>&nbsp;x</span></strong>
+           <?php } ?>
+          </td>
         </tr>
         <tr>
-          <td>B</td>
-          <td>123</td>
-          <td></td>
+          <td style="width: 50px; text-align: center;">B</td>
+          <td> <?= $row1['B'] ?></td>
+          <td><?php if ($uresponse==1 && $uresult==$row1['B'] ) { ?>
+            <strong><span style='color: green;'>&nbsp;&#10004;</span></strong>
+          <?php }else if ($uresponse==0 && $uresult==$row1['B'] ) { ?>
+              <strong><span style='color: red;'>&nbsp;x</span></strong>
+           <?php } ?></td>
         </tr>
         <tr>
-          <td>C</td>
-          <td>123</td>
+          <td style="width: 50px; text-align: center;">C</td>
+          <td> <?= $row1['C'] ?></td>
+          <td><?php if ($uresponse==1 && $uresult==$row1['C'] ) { ?>
+            <strong><span style='color: green;'>&nbsp;&#10004;</span></strong>
+          <?php }else if ($uresponse==0 && $uresult==$row1['C'] ) { ?>
+                <strong><span style='color: red;'>&nbsp;x</span></strong>
+           <?php } ?></td>
         </tr>
         <tr>
-          <td>C</td>
-          <td>123</td>
-          <td></td>
+          <td style="width: 50px; text-align: center;">D</td>
+          <td> <?= $row1['D'] ?></td>
+          <td><?php if ($uresponse==1 && $uresult==$row1['D'] ) { ?>
+            <strong><span style='color: green;'>&nbsp;&#10004;</span></strong>
+          <?php }else if ($uresponse==0 && $uresult==$row1['D'] ) { ?>
+            <strong><span style='color: red;'>&nbsp;x</span></strong>
+           <?php } ?></td>
         </tr>
       </table>
       
@@ -252,7 +254,8 @@ function callme()
       //   echo "</li>"; 
       //   $c++;
       //   } -->
-      <?php }
+
+      <?php $c++; }
         ?>
        
     </section>

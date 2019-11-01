@@ -118,12 +118,6 @@ form input[type=radio]{
 
   </style>
   <script type="text/javascript">
-function callme()
-{
-
-    $('p #aa').text="aaa";
-    alert();
-}  
 </script>
 </head>
 <body>
@@ -154,22 +148,7 @@ function callme()
                         <ul>
                             <li class="active"><a href="index.php">home</a></li>
                             <li><a href="about.html">about us</a></li>
-                            <li><a href="job-category.html">category</a></li>
-                            <li><a href="#">blog</a>
-                                <ul class="sub-menu">
-                                    <li><a href="blog-home.html">Blog Home</a></li>
-                                    <li><a href="blog-details.html">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contact-us.html">contact</a></li>
-                            <li><a href="#">pages</a>
-                                <ul class="sub-menu">
-                                    <li><a href="job-search.html">Job Search</a></li>
-                                    <li><a href="job-single.html">Job Single</a></li>
-                                    <li><a href="pricing-plan.html">Pricing Plan</a></li>
-                                    <li><a href="elements.html">Elements</a></li>
-                                </ul>
-                            </li>
+                            
                             <?php
                             if (isset($_SESSION['user'])) {  ?>
                                 <li class="menu-btn">
