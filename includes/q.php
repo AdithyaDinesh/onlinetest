@@ -8,7 +8,7 @@ $shuffle = explode (",",$row['shuffle']);
 $i=$_SESSION['iteration']; 
 echo $shuffle[$i];
         if ($shuffle[$i]=='#') {
-          $_SESSION['status']='ok';
+          echo "<script> window.location = 'response.php'; </script>";
           }else{
           $_SESSION['status']='notok';
           $sql="SELECT * FROM questions WHERE id='$shuffle[$i]'";
