@@ -174,7 +174,7 @@ function callme()
                             if (isset($_SESSION['user'])) {  ?>
                                 <li class="menu-btn">
                                 <a  class="login" href="includes/logout.php">
-                                Logout
+                                Logout / <?= $_SESSION['user'] ?>
                             </a>
                             </li>
                             <?php } else { ?>
@@ -190,7 +190,6 @@ function callme()
         </div>
     </header>
     <?php include('includes/shuffle.php'); ?>
-    <?= $_SESSION['iteration'] ?>
 
 <script type="text/javascript">
   // Set the date we're counting down to

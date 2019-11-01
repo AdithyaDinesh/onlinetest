@@ -1,12 +1,12 @@
 <?php
 $uid = $row['uid'];
-$sql="SELECT shuffle FROM exam WHERE uid = '$uid' AND eid= (SELECT MAX(eid) FROM exam)";
+$sql="SELECT shuffle,eid FROM exam WHERE uid = '$uid' AND eid= (SELECT MAX(eid) FROM exam)";
 $result=$db->query($sql) or die($db->error);
 $row = $result->fetch_assoc();
-    echo "<br>".$row['shuffle']."<br>";
+$_SESSION['examid'] = $row['eid'];
 $shuffle = explode (",",$row['shuffle']);
+$_SESSION['shuffle'] = $shuffle;
 $i=$_SESSION['iteration']; 
-echo $shuffle[$i];
         if ($shuffle[$i]=='#') {
           echo "<script> window.location = 'response.php'; </script>";
           }else{

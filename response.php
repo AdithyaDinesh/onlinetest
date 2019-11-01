@@ -170,11 +170,10 @@ function callme()
                                     <li><a href="elements.html">Elements</a></li>
                                 </ul>
                             </li>
-                            <?php
-                            if (isset($_SESSION['user'])) {  ?>
+                            <?php if (isset($_SESSION['user'])) {  ?>
                                 <li class="menu-btn">
                                 <a  class="login" href="includes/logout.php">
-                                Logout
+                                Logout / <?= $_SESSION['user'] ?>
                             </a>
                             </li>
                             <?php } else { ?>
@@ -194,39 +193,67 @@ function callme()
     </div>
     <section class="feature-area section-padding2 col-md-10">
       <?php 
-
+      include 'includes/conn.php';
       $eid=$_SESSION['examid'];
         $sql1="SELECT * FROM userresponse U,questions Q  WHERE U.tid='$eid' AND U.qid=Q.id" ;
         $result= mysqli_query($db,$sql1);
         $c=1;
+
         while($c<=10){
-          $row1 = $result->fetch_assoc();
+        $row1 = $result->fetch_assoc();
           $id=$row1['qid'];
           $uresult=$row1['response'];
           $uresponse=$row1['result'];
-          echo "<span id='Q'>".$c.") ".$row1['question']."</span>";
-          echo "<p class='ansDiv'><ul>";
-        if ($uresponse==1 && $uresult==$row1['A'] ) {
-        echo "<li><strong><label class='ans' id='A'>A ) </label>";
-        echo "<label class='ans' id='A'>".$row1['A']."</label>";
-        echo "<span style='color: green;'>&nbsp;&#10004;</span></strong></li>";
-        }elseif ($uresponse==0 && $uresult==$row1['A'] ) {
-        echo "<li><strong><label class='ans' id='A'>A ) </label>";
-        echo "<label class='ans' id='A'>".$row1['A']."</label>";
-        echo "<span style='color: red;'>&nbsp;x</span></strong></li>";      
-        }
-        if($uresponse==0 &&  $row1['ans']==$row1['A']){
-        echo "<li><label class='ans' id='A'>A ) </label>";
-        echo "<label class='ans' id='A'>".$row1['A']."</label>";
-        echo "<span>&nbsp;&#10004;</span> </li>";           
-        }else{
-        echo "<li><label class='ans' id='A'>A ) </label>";
-        echo "<label class='ans' id='A'>".$row1['A']."</label>";
-        echo "</li>"; 
-
-        }
+          ?>
+          <table>
+        <tr>
+          <td><?= $c ?></td>
+          <td colspan="3"> <?= $row1['question'] ?></td>
+        </tr>
+        <tr>
+          <td>A</td>
+          <td>123</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>B</td>
+          <td>123</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>C</td>
+          <td>123</td>
+        </tr>
+        <tr>
+          <td>C</td>
+          <td>123</td>
+          <td></td>
+        </tr>
+      </table>
+      
+      <!-- //     echo "<span id='Q'>".$c.") ".$row1['question']."</span>";
+      //     echo "<p class='ansDiv'><ul>";
+      //   if ($uresponse==1 && $uresult==$row1['A'] ) {
+      //   echo "<li><strong><label class='ans' id='A'>A ) </label>";
+      //   echo "<label class='ans' id='A'>".$row1['A']."</label>";
+      //   echo "<span style='color: green;'>&nbsp;&#10004;</span></strong></li>";
+      //   }elseif ($uresponse==0 && $uresult==$row1['A'] ) {
+      //   echo "<li><strong><label class='ans' id='A'>A ) </label>";
+      //   echo "<label class='ans' id='A'>".$row1['A']."</label>";
+      //   echo "<span style='color: red;'>&nbsp;x</span></strong></li>";      
+      //   }
+      //   if($uresponse==0 &&  $row1['ans']==$row1['A']){
+      //   echo "<li><label class='ans' id='A'>A ) </label>";
+      //   echo "<label class='ans' id='A'>".$row1['A']."</label>";
+      //   echo "<span>&nbsp;&#10004;</span> </li>";           
+      //   }else{
+      //   echo "<li><label class='ans' id='A'>A ) </label>";
+      //   echo "<label class='ans' id='A'>".$row1['A']."</label>";
+      //   echo "</li>"; 
+      //   $c++;
+      //   } -->
+      <?php }
         ?>
        
     </section>
-
 </i></div>
