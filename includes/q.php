@@ -15,13 +15,6 @@ $i=$_SESSION['iteration'];
           $result=$db->query($sql) or die($db->error);
           $row = $result->fetch_assoc();
           }
-echo $_SESSION['status'];
-
-// $sql="SELECT * FROM questions WHERE category = '$cat_id'";
-    // $result=$db->query($sql) or die($db->error);
-
-
-
  ?>
     <section class="feature-area section-padding2 col-md-10">
         <div class="container">

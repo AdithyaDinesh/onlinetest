@@ -246,7 +246,7 @@ a:hover {
                         <img src="assets/images/cat1.png" alt="category">
                         <h4>Data Interpretation</h4>
                         <p class="py-3">Check how well you can interpret the datas.</p>
-                        <a href="includes/start?cat_id=2" class="secondary-btn">Take test now<span class="flaticon-next"></span></a>
+                        <a href="includes/start.php?cat_id=2" class="secondary-btn">Take test now<span class="flaticon-next"></span></a>
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -254,7 +254,7 @@ a:hover {
                         <img src="assets/images/cat7.png" alt="category">
                         <h4>Actual aptitude</h4>
                         <p class="py-3">This contains both type of questions.</p>
-                        <a href="includes/start?cat_id=3" class="secondary-btn">Take test now<span class="flaticon-next"></span></a>
+                        <a href="includes/start.php?cat_id=3" class="secondary-btn">Take test now<span class="flaticon-next"></span></a>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,8 @@
 <?php
 	include('conn.php');
 	$cat_id = $_GET['cat_id'];
-	$sql="SELECT id FROM questions WHERE category = '$cat_id'";
+    if ($cat_id == 3) {    	$sql="SELECT id FROM questions";    }
+    else{  $sql="SELECT id FROM questions WHERE category = '$cat_id'"; }
     $result=$db->query($sql) or die($db->error);
     $arr= array();
     $a=0;
